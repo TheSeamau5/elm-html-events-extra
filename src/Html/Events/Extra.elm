@@ -1,7 +1,7 @@
 module Html.Events.Extra where
 
 import Html exposing (Attribute)
-import Html.Decoder exposing (MouseEvent, mouseEvent)
+import Html.Decoder exposing (MouseEvent, mouseEvent, KeyboardEvent, keyboardEvent)
 import Html.Events exposing (on)
 import Signal exposing (Address, message)
 import Json.Decode exposing (Decoder)
@@ -58,6 +58,22 @@ onMouseOut =
   mouseEventHandler "mouseout"
 
 
------------------------------  
+-----------------------------
 -- Keyboard Event Handlers --
 -----------------------------
+
+keyboardEventHandler =
+  eventHandler mouseEvent
+
+
+onKeyDown : Address KeyboardEvent -> Attribute
+onKeyDown =
+  keyboardEventHandler "keydown"
+
+onKeyPress : Address KeyboardEvent -> Attribute
+onKeyPress =
+  keyboardEventHandler "keypress"
+
+onKeyUp : Address KeyboardEvent -> Attribute
+onKeyUp =
+  keyboardEventHandler "keyup"
