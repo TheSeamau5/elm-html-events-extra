@@ -63,7 +63,7 @@ onMouseOut =
 -----------------------------
 
 keyboardEventHandler =
-  eventHandler mouseEvent
+  eventHandler keyboardEvent
 
 
 onKeyDown : Address KeyboardEvent -> Attribute
